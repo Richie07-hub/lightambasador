@@ -130,6 +130,9 @@
         <span>Instagram</span>
       </div>
 
+
+      
+
     <div class="portfolio-card animate-fade-up delay-200">
   <a href="https://www.instagram.com/reel/DSpkfojiC7R/?igsh=MWh5cTh0MmxueXNoaw==" target="_blank">
     <img
@@ -244,7 +247,26 @@
   <p>© 2026 Richietech. All rights reserved.</p>
 </footer>
 
+<script>
+  (function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', function () {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('open');
+      });
+      // Close menu when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  })();
+</script>
+
 </body>
 </html>
-
-
